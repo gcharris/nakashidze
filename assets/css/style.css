@@ -484,25 +484,39 @@ section { position: relative; }
    HOME PAGE (index.html)
    ============================================================ */
 .home-hero {
-  min-height: 82vh;
+  min-height: 88vh;
   display: grid; align-items: center;
   position: relative; overflow: hidden;
   background:
-    linear-gradient(180deg, color-mix(in srgb, var(--green-950) 55%, transparent), color-mix(in srgb, var(--green-950) 78%, transparent)),
-    radial-gradient(120% 90% at 50% 0%, var(--green-700), var(--green-950));
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--green-950) 62%, transparent) 0%,
+      color-mix(in srgb, var(--green-900) 40%, transparent) 42%,
+      color-mix(in srgb, var(--green-950) 88%, transparent) 100%),
+    url("../img/house.jpg") center 32% / cover no-repeat,
+    var(--green-900);
   color: var(--cream);
   text-align: center;
-  padding: 5rem 0 4rem;
+  padding: 6rem 0 4.5rem;
+}
+.home-hero::after { /* soft blend into the section below */
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 22%;
+  background: linear-gradient(180deg, transparent, var(--porcelain));
+  pointer-events: none;
 }
 .home-hero__inner { position: relative; z-index: 2; }
 .home-hero h1 {
   font-size: clamp(2.6rem, 1.4rem + 4.6vw, 5.4rem);
   font-weight: 500; margin: 1rem 0 .4rem; letter-spacing: .01em;
+  text-shadow: 0 2px 24px rgba(8, 24, 16, .55), 0 1px 3px rgba(8, 24, 16, .45);
 }
 .home-hero .addr {
-  letter-spacing: .28em; text-transform: uppercase; font-size: .82rem; color: var(--gold);
+  letter-spacing: .28em; text-transform: uppercase; font-size: .82rem; color: var(--gold-bright);
+  text-shadow: 0 1px 10px rgba(8, 24, 16, .7);
 }
-.home-hero .lede { max-width: 54ch; margin: 1.6rem auto 2.2rem; color: var(--cream-soft); font-size: 1.16rem; }
+.home-hero .lede {
+  max-width: 54ch; margin: 1.6rem auto 2.2rem; color: var(--cream); font-size: 1.16rem;
+  text-shadow: 0 1px 14px rgba(8, 24, 16, .65);
+}
 .btn-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 .btn {
   text-decoration: none; font-size: .82rem; letter-spacing: .18em; text-transform: uppercase;
