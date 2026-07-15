@@ -484,24 +484,19 @@ section { position: relative; }
    HOME PAGE (index.html)
    ============================================================ */
 .home-hero {
-  min-height: 88vh;
+  min-height: 78vh;
   display: grid; align-items: center;
   position: relative; overflow: hidden;
   background:
     linear-gradient(180deg,
-      color-mix(in srgb, var(--green-950) 62%, transparent) 0%,
-      color-mix(in srgb, var(--green-900) 40%, transparent) 42%,
-      color-mix(in srgb, var(--green-950) 88%, transparent) 100%),
-    url("../img/house.jpg") center 32% / cover no-repeat,
+      color-mix(in srgb, var(--green-950) 52%, transparent) 0%,
+      color-mix(in srgb, var(--green-900) 34%, transparent) 42%,
+      color-mix(in srgb, var(--green-950) 80%, transparent) 100%),
+    url("../img/house.jpg") center 42% / cover no-repeat,
     var(--green-900);
   color: var(--cream);
   text-align: center;
-  padding: 6rem 0 4.5rem;
-}
-.home-hero::after { /* soft blend into the section below */
-  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 22%;
-  background: linear-gradient(180deg, transparent, var(--porcelain));
-  pointer-events: none;
+  padding: 3rem 0 3.5rem;
 }
 .home-hero__inner { position: relative; z-index: 2; }
 .home-hero h1 {
