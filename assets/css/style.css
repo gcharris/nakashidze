@@ -538,3 +538,31 @@ section { position: relative; }
 .hcard h3 { font-size: 1.55rem; }
 .hcard p { margin: 0; color: var(--ink-soft); font-size: 1rem; }
 .hcard .go { margin-top: auto; color: var(--crimson); font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; }
+
+/* ============================================================
+   VIDEO EMBED + RESOURCES (Stories page)
+   ============================================================ */
+.video-figure { margin: 0 auto; max-width: 880px; }
+.video-embed {
+  position: relative; width: 100%; aspect-ratio: 16 / 9;
+  border-radius: 4px; overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+  box-shadow: 0 26px 56px -30px rgba(0,0,0,.65);
+  background: #0b0b0b;
+}
+.video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+.video-figure figcaption { margin-top: 1rem; text-align: center; font-style: italic; font-size: .95rem; }
+.band--green .video-figure figcaption { color: var(--cream-soft); }
+.band--porcelain .video-figure figcaption { color: var(--ink-faint); }
+
+.arch { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+@media (max-width: 880px) { .arch { grid-template-columns: 1fr; } }
+.arch__img { border-radius: 4px; border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
+  box-shadow: 0 24px 50px -30px rgba(0,0,0,.55); }
+
+.resources { list-style: none; padding: 0; margin: 1.4rem auto 0; display: grid; gap: 1rem; max-width: 62ch; }
+.resources li { padding-left: 1.6rem; position: relative; }
+.resources li::before { content: "✠"; position: absolute; left: 0; top: .05em; color: var(--gold); }
+.resources a { color: inherit; text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--gold) 60%, transparent); text-underline-offset: 3px; }
+.resources a:hover { text-decoration-color: var(--gold); }
