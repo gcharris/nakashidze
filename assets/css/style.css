@@ -566,3 +566,141 @@ section { position: relative; }
 .resources a { color: inherit; text-decoration: underline;
   text-decoration-color: color-mix(in srgb, var(--gold) 60%, transparent); text-underline-offset: 3px; }
 .resources a:hover { text-decoration-color: var(--gold); }
+
+/* ============================================================
+   FAMILY TREE (tree page)
+   Horizontal pedigree: root at the left, ancestors fan right.
+   ============================================================ */
+.tree-legend {
+  display: flex; justify-content: center; align-items: center;
+  gap: 1.4rem 2.4rem; flex-wrap: wrap;
+  margin-bottom: 1.6rem;
+  font-size: .78rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.tree-legend span { display: inline-flex; align-items: center; gap: .6em; }
+.tree-legend i {
+  width: .95em; height: .95em; border-radius: 2px; display: inline-block;
+  border: 1px solid color-mix(in srgb, var(--ink) 20%, transparent);
+}
+.tree-legend .sw-geo  { background: var(--crimson); }
+.tree-legend .sw-brit { background: var(--azure); }
+
+.tree-scroll {
+  overflow-x: auto;
+  padding: .6rem .2rem 1.4rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-color: color-mix(in srgb, var(--gold) 65%, var(--porcelain-2)) var(--porcelain-2);
+  scrollbar-width: thin;
+}
+.tree-scroll::-webkit-scrollbar { height: 10px; }
+.tree-scroll::-webkit-scrollbar-track { background: var(--porcelain-2); border-radius: 8px; }
+.tree-scroll::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--gold) 65%, var(--porcelain-2));
+  border-radius: 8px;
+}
+.tree-hint {
+  text-align: center; margin-top: .9rem;
+  font-size: .74rem; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.tree-source {
+  text-align: center; margin-top: .5rem;
+  font-size: .84rem; font-style: italic; color: var(--ink-faint);
+}
+
+.tree { display: inline-flex; padding: .4rem 1rem .4rem 0; --tree-line: color-mix(in srgb, var(--gold-deep) 50%, transparent); }
+.tree ul {
+  list-style: none; margin: 0; padding: 0 0 0 1.9rem;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative;
+}
+.tree ul::before { /* stem from a person to their parents' junction */
+  content: ""; position: absolute; left: 0; top: 50%;
+  width: 1.9rem; height: 1px; background: var(--tree-line);
+}
+.tree li {
+  display: flex; align-items: center; position: relative;
+  padding: .32rem 0 .32rem 1.9rem;
+}
+.tree li::before { /* branch from the junction into this person */
+  content: ""; position: absolute; left: 0; top: 50%;
+  width: 1.9rem; height: 1px; background: var(--tree-line);
+}
+.tree li::after { /* vertical junction spanning the sibling pair */
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 1px; background: var(--tree-line);
+}
+.tree li:first-child::after { top: 50%; }
+.tree li:last-child::after  { bottom: 50%; }
+.tree li:only-child::after  { display: none; }
+
+/* root node: no incoming connectors */
+.tree > ul { padding-left: 0; }
+.tree > ul::before { display: none; }
+.tree > ul > li { padding-left: 0; }
+.tree > ul > li::before, .tree > ul > li::after { display: none; }
+
+/* person card */
+.pn {
+  position: relative; z-index: 1;
+  background: var(--paper);
+  border: 1px solid color-mix(in srgb, var(--gold) 42%, transparent);
+  border-left: 3px solid var(--gold);
+  border-radius: 4px;
+  padding: .55rem .95rem .62rem;
+  width: 196px;
+  box-shadow: 0 12px 26px -20px rgba(0,0,0,.5);
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
+}
+.pn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 34px -22px rgba(0,0,0,.55);
+  border-color: var(--gold);
+}
+.pn__name {
+  display: block;
+  font-family: var(--serif-display);
+  font-weight: 600; font-size: 1.02rem; line-height: 1.22;
+  color: var(--ink);
+}
+.pn__dates {
+  display: block; margin-top: .3rem;
+  font-size: .78rem; letter-spacing: .05em;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+.pn--geo  { border-left-color: var(--crimson); }
+.pn--brit { border-left-color: var(--azure); }
+
+/* the root person — Zoya */
+.pn--root {
+  width: 216px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--gold) 22%, transparent), transparent 55%),
+    var(--green-850);
+  border-color: color-mix(in srgb, var(--gold) 65%, transparent);
+  border-left: 3px solid var(--gold);
+  padding: .8rem 1.05rem .9rem;
+}
+.pn--root .pn__kicker {
+  display: block; margin-bottom: .3rem;
+  font-size: .64rem; letter-spacing: .26em; text-transform: uppercase;
+  color: var(--gold-bright);
+}
+.pn--root .pn__name  { color: var(--porcelain); font-size: 1.18rem; }
+.pn--root .pn__dates { color: var(--cream-soft); }
+
+/* outermost known generation — name-only stubs */
+.pn--stub { width: 168px; padding: .42rem .8rem .46rem; border-left-width: 2px;
+  background: color-mix(in srgb, var(--paper) 70%, var(--porcelain-2)); }
+.pn--stub .pn__name { font-weight: 500; font-size: .92rem; }
+
+@media (max-width: 640px) {
+  .pn { width: 172px; padding: .5rem .8rem .55rem; }
+  .pn__name { font-size: .95rem; }
+  .pn--stub { width: 150px; }
+  .tree ul { padding-left: 1.3rem; }
+  .tree ul::before, .tree li::before { width: 1.3rem; }
+  .tree li { padding-left: 1.3rem; }
+}
