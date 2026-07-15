@@ -8,6 +8,8 @@ Static website for the **Nakashidze Family House** — 27 Ninoshvili St, Batumi,
 |-----|------|---------|
 | `/` | [`index.html`](index.html) | Home / landing page |
 | `/arms` | [`arms/index.html`](arms/index.html) | **Coat of arms reference page — the target of the QR code on the commemorative plate** |
+| `/tree` | [`tree/index.html`](tree/index.html) | Family tree — five generations of ancestors of Zoya Nakashidze |
+| `/stories` | [`stories/index.html`](stories/index.html) | Stories & updates, incl. the family history film |
 
 The `/arms` URL is produced by the folder `arms/` containing an `index.html`, so it resolves cleanly without a `.html` extension.
 
