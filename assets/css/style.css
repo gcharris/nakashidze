@@ -539,8 +539,8 @@ section { position: relative; }
 .hcard p { margin: 0; color: var(--ink-soft); font-size: 1rem; }
 .hcard .go { margin-top: auto; color: var(--crimson); font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; }
 
-/* memorial notice on the home page */
-.memorial-ribbon {
+/* plate and family-tree notice on the home page */
+.family-ribbon {
   position: relative;
   z-index: 3;
   margin: 0;
@@ -548,7 +548,7 @@ section { position: relative; }
   border-top: 1px solid color-mix(in srgb, var(--gold) 58%, transparent);
   border-bottom: 1px solid color-mix(in srgb, var(--gold) 58%, transparent);
 }
-.memorial-ribbon a {
+.family-ribbon a {
   width: min(1100px, 92vw);
   margin-inline: auto;
   padding: 1.05rem 0;
@@ -561,34 +561,34 @@ section { position: relative; }
   text-decoration: none;
   text-align: center;
 }
-.memorial-ribbon span,
-.memorial-ribbon em,
-.memorial-ribbon b {
+.family-ribbon span,
+.family-ribbon em,
+.family-ribbon b {
   font-size: .72rem;
   letter-spacing: .17em;
   text-transform: uppercase;
 }
-.memorial-ribbon span { color: var(--crimson); }
-.memorial-ribbon strong { font-family: var(--serif-display); font-size: 1.2rem; font-weight: 600; }
-.memorial-ribbon em { color: var(--ink-faint); font-style: normal; }
-.memorial-ribbon b { color: var(--gold-deep); font-weight: 500; }
-.memorial-ribbon a:hover b { color: var(--crimson); }
+.family-ribbon span { color: var(--crimson); }
+.family-ribbon strong { font-family: var(--serif-display); font-size: 1.2rem; font-weight: 600; }
+.family-ribbon em { color: var(--ink-faint); font-style: normal; }
+.family-ribbon b { color: var(--gold-deep); font-weight: 500; }
+.family-ribbon a:hover b { color: var(--crimson); }
 
 /* ============================================================
-   DEIRDRE MEMORIAL (tree page)
+   FAMILY CONNECTION (tree page)
    ============================================================ */
-.memorial-hero {
+.family-hero {
   position: relative;
   isolation: isolate;
   overflow: hidden;
   color: var(--cream);
-  text-align: center;
-  padding: clamp(4.4rem, 11vh, 7.5rem) 0 clamp(4.7rem, 12vh, 8rem);
+  padding: clamp(4.4rem, 10vh, 7rem) 0;
   background:
-    radial-gradient(circle at 50% 13%, color-mix(in srgb, var(--gold) 17%, transparent), transparent 29%),
-    radial-gradient(100% 80% at 50% 0%, var(--green-700), var(--green-900) 61%, var(--green-950));
+    radial-gradient(circle at 22% 18%, color-mix(in srgb, var(--gold) 15%, transparent), transparent 30%),
+    radial-gradient(circle at 84% 76%, color-mix(in srgb, var(--crimson) 14%, transparent), transparent 28%),
+    linear-gradient(135deg, var(--green-700), var(--green-900) 58%, var(--green-950));
 }
-.memorial-hero::before {
+.family-hero::before {
   content: "";
   position: absolute;
   inset: 1.2rem;
@@ -596,166 +596,103 @@ section { position: relative; }
   border: 1px solid color-mix(in srgb, var(--gold) 34%, transparent);
   pointer-events: none;
 }
-.memorial-hero::after {
-  content: "✦";
-  position: absolute;
-  left: 50%;
-  bottom: 1.2rem;
-  z-index: -1;
-  transform: translate(-50%, 50%);
-  padding: 0 .8rem;
-  color: var(--gold);
-  background: var(--green-950);
-  font-size: .9rem;
+.family-hero__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, .92fr) minmax(390px, 1.08fr);
+  gap: clamp(2.5rem, 7vw, 6.5rem);
+  align-items: center;
 }
-.memorial-hero__inner { position: relative; z-index: 1; }
-.memorial-hero__title {
-  margin: 1.2rem 0 0;
-  font-size: clamp(3.25rem, 1.65rem + 6.1vw, 6.6rem);
+.family-hero__title {
+  margin: 1.15rem 0 0;
+  font-size: clamp(3.4rem, 2rem + 5vw, 6rem);
   font-weight: 400;
-  line-height: .9;
+  line-height: .92;
   letter-spacing: -.015em;
 }
-.memorial-hero__title span { display: block; font-size: .72em; margin-top: .18em; }
-.memorial-hero__known {
-  margin: 1.35rem 0 0;
-  color: var(--gold-bright);
-  font-size: 1.08rem;
-  font-style: italic;
-  letter-spacing: .06em;
-}
-.memorial-hero__dates {
-  margin: .75rem 0 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: .8rem;
-  color: var(--porcelain);
-  font-family: var(--serif-display);
-  font-size: 1.28rem;
-  font-variant-numeric: tabular-nums;
-}
-.memorial-hero__dates span { color: var(--gold); }
-.memorial-gathering {
-  width: fit-content;
-  margin: 1.8rem auto 0;
-  padding: .85rem 1.35rem;
-  display: grid;
-  gap: .1rem;
-  border-block: 1px solid color-mix(in srgb, var(--gold) 54%, transparent);
-}
-.memorial-gathering span {
-  color: var(--gold-bright);
-  font-size: .75rem;
-  letter-spacing: .24em;
-  text-transform: uppercase;
-}
-.memorial-gathering strong {
-  color: var(--cream-soft);
-  font-size: .98rem;
-  font-weight: 400;
-  font-style: italic;
-}
-.memorial-hero__lede {
-  max-width: 56ch;
-  margin: 1.65rem auto 2rem;
+.family-hero__title span { display: block; font-size: .72em; margin-top: .16em; }
+.family-hero__lede {
+  max-width: 48ch;
+  margin: 1.65rem 0 2rem;
   color: var(--cream-soft);
   font-size: 1.15rem;
 }
-
-.memorial-opening {
+.family-gatherings {
   display: grid;
-  grid-template-columns: minmax(230px, .72fr) minmax(0, 1.28fr);
-  gap: clamp(2rem, 7vw, 6rem);
-  align-items: start;
-}
-.memorial-opening__heading {
-  position: sticky;
-  top: 6rem;
-  padding-top: .25rem;
-}
-.memorial-opening__heading h2 {
-  margin-top: 1rem;
-  font-size: clamp(2.15rem, 1.5rem + 2.4vw, 3.5rem);
-  color: var(--green-850);
-}
-.memorial-opening__copy { border-left: 1px solid color-mix(in srgb, var(--gold) 55%, transparent); padding-left: clamp(1.4rem, 3vw, 2.5rem); }
-.life-journey {
-  position: relative;
-  margin-top: clamp(3rem, 7vh, 5.5rem);
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: 1fr auto 1fr;
   gap: 1px;
-  background: color-mix(in srgb, var(--gold) 38%, transparent);
-  border: 1px solid color-mix(in srgb, var(--gold) 38%, transparent);
+  background: color-mix(in srgb, var(--gold) 45%, transparent);
+  border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+  box-shadow: 0 30px 70px -45px rgba(0,0,0,.9);
 }
-.life-stop { min-height: 190px; padding: 1.4rem 1.2rem; background: var(--paper); }
-.life-stop span { color: var(--crimson); font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; }
-.life-stop strong { display: block; margin-top: .45rem; font-family: var(--serif-display); font-size: 1.35rem; color: var(--green-850); }
-.life-stop p { margin: .55rem 0 0; color: var(--ink-soft); font-size: .95rem; line-height: 1.5; }
-
-.memory-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2.5vw, 1.8rem); }
-.memory-card {
+.family-gathering {
+  min-height: 250px;
   padding: clamp(1.5rem, 3vw, 2.2rem);
-  background: color-mix(in srgb, var(--green-850) 78%, transparent);
-  border: 1px solid color-mix(in srgb, var(--gold) 36%, transparent);
-  box-shadow: 0 24px 42px -34px rgba(0,0,0,.75);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background: color-mix(in srgb, var(--green-850) 82%, transparent);
 }
-.memory-card__mark { display: block; color: var(--gold); font-size: 1.45rem; line-height: 1; }
-.memory-card h3 { margin-top: .8rem; color: var(--porcelain); font-size: 1.55rem; }
-.memory-card p { margin: .8rem 0 0; color: var(--cream-soft); font-size: 1rem; }
-.memorial-pullquote {
-  margin: clamp(2.6rem, 6vh, 4.6rem) auto 0;
-  max-width: 28ch;
+.family-gathering time {
   color: var(--gold-bright);
-  text-align: center;
-  font-family: var(--serif-display);
-  font-size: clamp(1.8rem, 1.25rem + 2vw, 2.8rem);
-  font-style: italic;
-  line-height: 1.2;
+  font-size: .7rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
 }
+.family-gathering h2 {
+  margin-top: .45rem;
+  color: var(--porcelain);
+  font-size: clamp(2rem, 1.4rem + 2vw, 3rem);
+}
+.family-gathering p { margin: .65rem auto 0; max-width: 22ch; color: var(--cream-soft); font-size: .96rem; }
+.family-gatherings__link {
+  width: 82px;
+  padding: 1rem .5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .7rem;
+  color: var(--gold-bright);
+  background: var(--green-950);
+}
+.family-gatherings__link span {
+  writing-mode: vertical-rl;
+  font-size: .6rem;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+}
+.family-gatherings__link i { color: var(--gold); font-style: normal; }
+.family-context { border-bottom: 1px solid color-mix(in srgb, var(--gold) 38%, transparent); }
+.family-context__copy {
+  padding-top: 1.6rem;
+  border-top: 1px solid color-mix(in srgb, var(--gold) 50%, transparent);
+}
+.family-context__copy p { max-width: 65ch; margin-inline: auto; }
+.family-tree-section { border-top: 0; }
 
-.family-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.3rem; }
-.family-panel {
-  padding: clamp(1.5rem, 3vw, 2.2rem);
-  background: var(--paper);
-  border-top: 3px solid var(--gold);
-  box-shadow: 0 20px 44px -36px rgba(0,0,0,.55);
+@media (max-width: 980px) {
+  .family-hero__grid { grid-template-columns: 1fr; }
+  .family-hero__copy { max-width: 720px; text-align: center; margin-inline: auto; }
+  .family-hero__lede { margin-inline: auto; }
+  .family-hero__copy .btn-row { justify-content: center; }
+  .family-gatherings { max-width: 720px; width: 100%; margin-inline: auto; }
 }
-.family-panel--wide { grid-column: 1 / -1; padding-inline: clamp(1.5rem, 5vw, 4rem); }
-.family-panel h3 { color: var(--green-850); font-size: 1.55rem; }
-.family-panel p { margin: .75rem 0 0; color: var(--ink-soft); }
-.family-panel__note { font-style: italic; color: var(--ink-faint) !important; }
-.memorial-fleuron { margin-top: clamp(2.5rem, 6vh, 4rem); }
-.memorial-closing {
-  max-width: 52ch;
-  margin: 1.3rem auto 0;
-  color: var(--green-850);
-  text-align: center;
-  font-family: var(--serif-display);
-  font-size: clamp(1.5rem, 1.15rem + 1.3vw, 2.15rem);
-  font-style: italic;
-  line-height: 1.32;
-}
-.family-tree-section { border-top: 1px solid color-mix(in srgb, var(--gold) 46%, transparent); }
-
-@media (max-width: 900px) {
-  .memorial-opening { grid-template-columns: 1fr; gap: 1.6rem; }
-  .memorial-opening__heading { position: static; text-align: center; }
-  .memorial-opening__copy { border-left: 0; border-top: 1px solid color-mix(in srgb, var(--gold) 55%, transparent); padding: 1.6rem 0 0; }
-  .life-journey { grid-template-columns: repeat(2, 1fr); }
-  .memory-cards { grid-template-columns: 1fr; }
-}
-@media (max-width: 600px) {
-  .memorial-hero { padding-block: 4rem 4.8rem; }
-  .memorial-hero::before { inset: .7rem; }
-  .memorial-hero__title { font-size: clamp(3rem, 16vw, 4.5rem); }
-  .memorial-hero__dates { font-size: 1.03rem; gap: .55rem; }
-  .memorial-gathering { padding-inline: .8rem; }
-  .life-journey, .family-grid { grid-template-columns: 1fr; }
-  .family-panel--wide { grid-column: auto; }
-  .life-stop { min-height: 0; }
-  .memorial-ribbon a { display: grid; gap: .15rem; }
+@media (max-width: 650px) {
+  .family-hero { padding-block: 4rem; }
+  .family-hero::before { inset: .7rem; }
+  .family-hero__title { font-size: clamp(3.1rem, 16vw, 4.5rem); }
+  .family-gatherings { grid-template-columns: 1fr; }
+  .family-gathering { min-height: 0; padding-block: 2rem; }
+  .family-gatherings__link {
+    width: auto;
+    padding: .75rem 1rem;
+    flex-direction: row;
+  }
+  .family-gatherings__link span { writing-mode: horizontal-tb; }
+  .family-ribbon a { display: grid; gap: .15rem; }
 }
 
 /* ============================================================
