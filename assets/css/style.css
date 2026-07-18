@@ -540,7 +540,7 @@ section { position: relative; }
 .hcard .go { margin-top: auto; color: var(--crimson); font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; }
 
 /* plate and family-tree notice on the home page */
-.family-ribbon {
+.plate-ribbon {
   position: relative;
   z-index: 3;
   margin: 0;
@@ -548,7 +548,7 @@ section { position: relative; }
   border-top: 1px solid color-mix(in srgb, var(--gold) 58%, transparent);
   border-bottom: 1px solid color-mix(in srgb, var(--gold) 58%, transparent);
 }
-.family-ribbon a {
+.plate-ribbon a {
   width: min(1100px, 92vw);
   margin-inline: auto;
   padding: 1.05rem 0;
@@ -561,18 +561,18 @@ section { position: relative; }
   text-decoration: none;
   text-align: center;
 }
-.family-ribbon span,
-.family-ribbon em,
-.family-ribbon b {
+.plate-ribbon span,
+.plate-ribbon em,
+.plate-ribbon b {
   font-size: .72rem;
   letter-spacing: .17em;
   text-transform: uppercase;
 }
-.family-ribbon span { color: var(--crimson); }
-.family-ribbon strong { font-family: var(--serif-display); font-size: 1.2rem; font-weight: 600; }
-.family-ribbon em { color: var(--ink-faint); font-style: normal; }
-.family-ribbon b { color: var(--gold-deep); font-weight: 500; }
-.family-ribbon a:hover b { color: var(--crimson); }
+.plate-ribbon span { color: var(--crimson); }
+.plate-ribbon strong { font-family: var(--serif-display); font-size: 1.2rem; font-weight: 600; }
+.plate-ribbon em { color: var(--ink-faint); font-style: normal; }
+.plate-ribbon b { color: var(--gold-deep); font-weight: 500; }
+.plate-ribbon a:hover b { color: var(--crimson); }
 
 /* ============================================================
    FAMILY CONNECTION (tree page)
@@ -692,7 +692,7 @@ section { position: relative; }
     flex-direction: row;
   }
   .family-gatherings__link span { writing-mode: horizontal-tb; }
-  .family-ribbon a { display: grid; gap: .15rem; }
+  .plate-ribbon a { display: grid; gap: .15rem; }
 }
 
 /* ============================================================

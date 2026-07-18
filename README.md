@@ -8,7 +8,7 @@ Static website for the **Nakashidze Family House** — 27 Ninoshvili St, Batumi,
 |-----|------|---------|
 | `/` | [`index.html`](index.html) | Home / landing page |
 | `/arms` | [`arms/index.html`](arms/index.html) | **Coat of arms reference page — the target of the QR code on the commemorative plate** |
-| `/tree` | [`tree/index.html`](tree/index.html) | Family-tree page connecting the Tbilisi and Toronto plate presentations through Deirdre Nakashidze Bugbee's documented ancestry |
+| `/tree` | [`tree/index.html`](tree/index.html) | Temporary redirect to `/arms`; the working family-tree draft remains preserved in Git history and PR #5 |
 | `/stories` | [`stories/index.html`](stories/index.html) | Stories & updates, incl. the family history film |
 
 The `/arms` URL is produced by the folder `arms/` containing an `index.html`, so it resolves cleanly without a `.html` extension.
